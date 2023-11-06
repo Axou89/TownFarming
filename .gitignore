@@ -1,3 +1,6 @@
-.vscode
-.idea
-.exe
+/bin
+
+/.vscode
+/.idea
+
+*.exe
