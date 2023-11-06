@@ -3,7 +3,7 @@
 #include "constants.hpp"
 
 // Constructor
-Level::Level(RenderWindow &window) : window(window)
+Level::Level(RenderWindow &window, Mix_Music* music) : window(window), music(music)
 {
     for (int i = 0; i < (WINDOW_WIDTH / SCALE_FACTOR); i += PLATFORM_WIDTH)
     {
@@ -12,22 +12,18 @@ Level::Level(RenderWindow &window) : window(window)
             std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
     }
 
-    /* NOT YET INCLUDED
     // Play the music in loop
     if (Mix_PlayMusic(music, -1) == -1)
     {
         std::cerr << "Failed to play music! SDL_mixer Error: " << Mix_GetError() << std::endl;
     }
-    */
 }
 
 // Destructor
 Level::~Level()
 {
     Mix_HaltMusic();
-    /* NOT YET INCLUDED
     Mix_FreeMusic(music);
-    */
 }
 
 // Render all the platforms

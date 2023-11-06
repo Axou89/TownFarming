@@ -8,7 +8,7 @@ Game::Game() :
     timeStep(TIME_STEP),
     window(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT),
     eventManager(),
-    level(window),
+    level(window, loadMusic(GAME_MUSIC_PATH)),
     updateManager(eventManager, level),
     renderManager(window, level) {}
 

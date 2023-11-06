@@ -20,6 +20,9 @@ constexpr int SCALE_FACTOR = 4;
 // Texture path
 constexpr char* PLATFORM_TEXTURE_PATH = "../../ressources/gfx/grass.png";
 
+// Music path
+constexpr char* GAME_MUSIC_PATH = "../../ressources/audio/Duck-Sandstorm.mp3";
+
 // Configuration of the platform sprite sheet
 constexpr int PLATFORM_SPRITE_SHEET_CONFIGURATION_X = 0;
 constexpr int PLATFORM_SPRITE_SHEET_CONFIGURATION_Y = 0;

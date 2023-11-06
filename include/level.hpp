@@ -9,7 +9,7 @@
 class Level
 {
 public:
-    Level(RenderWindow &window);
+    Level(RenderWindow &window, Mix_Music* music);
     ~Level();
     
     void render(RenderWindow &window);
@@ -17,7 +17,5 @@ public:
 private:
     RenderWindow &window;
     std::vector<Platform> platforms;
-    /* NOT YET INCLUDED
     Mix_Music* music;
-    */
 };
