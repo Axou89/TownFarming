@@ -5,11 +5,34 @@
 // Constructor
 Level::Level(RenderWindow &window, Mix_Music* music) : window(window), music(music)
 {
-    for (int i = 0; i < (WINDOW_WIDTH / SCALE_FACTOR); i += PLATFORM_WIDTH)
+    for (int w = 0; w < (WINDOW_WIDTH / SCALE_FACTOR); w += SPRITE_WIDTH)
     {
-        platforms.push_back(Platform(Vector2f(i, ((WINDOW_HEIGHT / SCALE_FACTOR) - PLATFORM_HEIGHT)),
-            window.loadTexture(PLATFORM_TEXTURE_PATH), PLATFORM_WIDTH, PLATFORM_HEIGHT,
-            std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+        for (int h = 0; h < (WINDOW_HEIGHT / SCALE_FACTOR); h += SPRITE_HEIGHT)
+        {
+            if (w%64 == 0 && h%64 == 0)
+            {
+                platforms.push_back(Platform(Vector2f(w, h),
+                    window.loadTexture(EMPTY_TERRAIN_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
+                    std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+            }
+            else if (w%64 == 0 && h%64 != 0)
+            {
+                platforms.push_back(Platform(Vector2f(w, h),
+                    window.loadTexture(HORIZONTAL_ROAD_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
+                    std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+            }
+            else if (w%64 != 0 && h%64 == 0)
+            {
+                platforms.push_back(Platform(Vector2f(w, h),
+                    window.loadTexture(VERTICAL_ROAD_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
+                    std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+            }
+            else {
+                platforms.push_back(Platform(Vector2f(w, h),
+                    window.loadTexture(CROSS_ROAD_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
+                    std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+            }
+        }
     }
 
     // Play the music in loop

@@ -4,21 +4,25 @@
 constexpr char *WINDOW_TITLE = "Town Farming";
 
 // Window size
-constexpr int WINDOW_HEIGHT = 720;
-constexpr int WINDOW_WIDTH = 1280;
+constexpr int WINDOW_HEIGHT = 896;
+constexpr int WINDOW_WIDTH = 1664;
 
 // Time between each logic game frame in seconds
 constexpr float TIME_STEP = 0.01;
 
-// Platform size
-constexpr int PLATFORM_WIDTH = 32;
-constexpr int PLATFORM_HEIGHT = 32;
+// Sprite size
+constexpr int SPRITE_WIDTH = 32;
+constexpr int SPRITE_HEIGHT = 32;
 
-// Scale factor for platforms
+// Scale factor for sprites
 constexpr int SCALE_FACTOR = 4;
 
 // Texture path
-constexpr char* PLATFORM_TEXTURE_PATH = "../../ressources/gfx/grass.png";
+constexpr char* VERTICAL_ROAD_TEXTURE_PATH = "../../ressources/gfx/vertical_road.png";
+constexpr char* HORIZONTAL_ROAD_TEXTURE_PATH = "../../ressources/gfx/horizontal_road.png";
+constexpr char* CROSS_ROAD_TEXTURE_PATH = "../../ressources/gfx/cross_road.png";
+constexpr char* TREE_TEXTURE_PATH = "../../ressources/gfx/tree.png";
+constexpr char* EMPTY_TERRAIN_TEXTURE_PATH = "../../ressources/gfx/empty.png";
 
 // Music path
 constexpr char* GAME_MUSIC_PATH = "../../ressources/audio/Duck-Sandstorm.mp3";
