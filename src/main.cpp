@@ -34,6 +34,13 @@ bool initSDL()
         return false;
     }
 
+    // Initialize SDL_ttf
+    if (TTF_Init() < 0)
+    {
+        std::cout << "SDL_ttf could not initialize! SDL_ttf Error: " << TTF_GetError() << std::endl;
+        return false;
+    }
+
     return true;
 }
 

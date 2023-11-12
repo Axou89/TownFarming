@@ -21,6 +21,28 @@ Game::~Game()
 // Execute the game loop
 void Game::run()
 {
+    // Overlay
+
+    TTF_Font *font = TTF_OpenFont("arial.ttf", 25);
+    if (!font)
+    {
+        std::cerr << "Failed to load font! SDL_ttf Error: " << TTF_GetError() << std::endl;
+    }
+
+    SDL_Color color = { 255, 255, 255 };
+    SDL_Surface *surface = TTF_RenderText_Solid(font, "250", color);
+    
+    SDL_Renderer *renderer = window.getRenderer();
+
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+
+    int overlayWidht = 0;
+    int overlayHeight = 0;
+    SDL_QueryTexture(texture, NULL, NULL, &overlayWidht, &overlayHeight);
+    SDL_Rect dstrect = { 32, 16, overlayWidht, overlayHeight };
+
+    // End overlay
+
     // Game loop
     while (eventManager.isGameRunning())
     {
@@ -38,7 +60,13 @@ void Game::run()
         }
 
         renderManager.render();
+        SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+        SDL_RenderPresent(renderer);
     }
+	
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
+    TTF_CloseFont(font);
 }
 
 // Clean all ressources
@@ -52,6 +80,8 @@ void Game::cleanUp()
     IMG_Quit();
     // Clean ressources from SDL
     SDL_Quit();
+    // Clean ressources from SDL_ttf
+    TTF_Quit();
 }
 
 // Load the game music

@@ -9,7 +9,13 @@ Level::Level(RenderWindow &window, Mix_Music* music) : window(window), music(mus
     {
         for (int h = 0; h < (WINDOW_HEIGHT / SCALE_FACTOR); h += SPRITE_HEIGHT)
         {
-            if (w%64 == 0 && h%64 == 0)
+            if (w == 0)
+            {
+                platforms.push_back(Platform(Vector2f(w, h),
+                    window.loadTexture(OVERLAY_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
+                    std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+            }
+            else if (w%64 == 0 && h%64 == 0)
             {
                 platforms.push_back(Platform(Vector2f(w, h),
                     window.loadTexture(EMPTY_TERRAIN_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
