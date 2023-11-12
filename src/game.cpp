@@ -23,17 +23,18 @@ void Game::run()
 {
     // Overlay
 
-    TTF_Font *font = TTF_OpenFont("arial.ttf", 25);
+    int timer = (int)utils::hireTimeInSeconds();
+
+    TTF_Font *font = TTF_OpenFont("arial.ttf", 24);
     if (!font)
     {
         std::cerr << "Failed to load font! SDL_ttf Error: " << TTF_GetError() << std::endl;
     }
 
     SDL_Color color = { 255, 255, 255 };
-    SDL_Surface *surface = TTF_RenderText_Solid(font, "250", color);
-    
     SDL_Renderer *renderer = window.getRenderer();
 
+    SDL_Surface *surface = TTF_RenderText_Solid(font, std::to_string(timer).c_str(), color);
     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
 
     int overlayWidht = 0;
@@ -59,7 +60,14 @@ void Game::run()
             accumulator -= timeStep;
         }
 
+        // Update timer text
+        SDL_DestroyTexture(texture);
+        timer = (int)utils::hireTimeInSeconds();
+        surface = TTF_RenderText_Solid(font, std::to_string(timer).c_str(), color);
+        texture = SDL_CreateTextureFromSurface(renderer, surface);
+
         renderManager.render();
+        dstrect = { 32, 16, static_cast<int>(overlayWidht + (std::to_string(timer).length() - 1) * 10), overlayHeight };
         SDL_RenderCopy(renderer, texture, NULL, &dstrect);
         SDL_RenderPresent(renderer);
     }
