@@ -1,5 +1,7 @@
 #pragma once
 
+#include <SDL2/SDL.h>
+
 // Window title
 constexpr char *WINDOW_TITLE = "Town Farming";
 
@@ -27,6 +29,12 @@ constexpr char* OVERLAY_TEXTURE_PATH = "../../ressources/gfx/overlay.png";
 
 // Music path
 constexpr char* GAME_MUSIC_PATH = "../../ressources/audio/Duck-Sandstorm.mp3";
+
+// Font path
+constexpr char* FONT_PATH = "arial.ttf";
+
+// Text color
+constexpr SDL_Color TEXT_COLOR = { 255, 255, 255 };
 
 // Configuration of the platform sprite sheet
 constexpr int PLATFORM_SPRITE_SHEET_CONFIGURATION_X = 0;

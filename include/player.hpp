@@ -1,6 +1,8 @@
 #pragma once
 
 #include <utility>
+#include <map>
+#include <string>
 
 #include "event_manager.hpp"
 
@@ -8,8 +10,11 @@ class Player
 {
 public:
     // Constructor
-    Player(EventManager &p_eventManager) : eventManager(p_eventManager) {};
+    Player(EventManager &p_eventManager);
+
+    int getLog() { return inventory["log"]; }
 
 private:
     EventManager &eventManager;
+    std::map<std::string, int> inventory;
 };

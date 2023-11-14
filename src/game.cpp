@@ -9,6 +9,7 @@ Game::Game() :
     window(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT),
     eventManager(),
     level(window, loadMusic(GAME_MUSIC_PATH)),
+    player(player),
     updateManager(eventManager, level),
     renderManager(window, level) {}
 
@@ -21,27 +22,9 @@ Game::~Game()
 // Execute the game loop
 void Game::run()
 {
-    // Overlay
-
-    int timer = (int)utils::hireTimeInSeconds();
-
-    TTF_Font *font = TTF_OpenFont("arial.ttf", 24);
-    if (!font)
-    {
-        std::cerr << "Failed to load font! SDL_ttf Error: " << TTF_GetError() << std::endl;
-    }
-
-    SDL_Color color = { 255, 255, 255 };
+    // Overlay constants
+    TTF_Font *font = utils::loadFont(FONT_PATH, 24);
     SDL_Renderer *renderer = window.getRenderer();
-
-    SDL_Surface *surface = TTF_RenderText_Solid(font, std::to_string(timer).c_str(), color);
-    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
-
-    int overlayWidht = 0;
-    int overlayHeight = 0;
-    SDL_QueryTexture(texture, NULL, NULL, &overlayWidht, &overlayHeight);
-    SDL_Rect dstrect = { 32, 16, overlayWidht, overlayHeight };
-
     // End overlay
 
     // Game loop
@@ -60,21 +43,19 @@ void Game::run()
             accumulator -= timeStep;
         }
 
-        // Update timer text
-        SDL_FreeSurface(surface);
-        SDL_DestroyTexture(texture);
-        timer = (int)utils::hireTimeInSeconds();
-        surface = TTF_RenderText_Solid(font, std::to_string(timer).c_str(), color);
-        texture = SDL_CreateTextureFromSurface(renderer, surface);
-
         renderManager.render();
-        dstrect = { 32, 16, static_cast<int>(overlayWidht + (std::to_string(timer).length() - 1) * 10), overlayHeight };
-        SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+
+        // Update timer text
+        int timer = (int)utils::hireTimeInSeconds();
+        utils::RenderText(font, renderer, std::to_string(timer).c_str(), 16);
+
+        // Update log quantity text
+        utils::RenderText(font, renderer, std::to_string(player.getLog()).c_str(), 48);
+
+        // Render the overlay texts
         SDL_RenderPresent(renderer);
     }
 	
-    SDL_FreeSurface(surface);
-    SDL_DestroyTexture(texture);
     TTF_CloseFont(font);
 }
 

@@ -10,6 +10,7 @@
 #include "render_manager.hpp"
 #include "render_window.hpp"
 #include "level.hpp"
+#include "player.hpp"
 
 class Game
 {
@@ -31,4 +32,5 @@ private:
     UpdateManager updateManager;
     RenderManager renderManager;
     Level level;
+    Player player;
 };
