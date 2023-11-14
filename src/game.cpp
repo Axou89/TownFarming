@@ -53,6 +53,8 @@ void Game::run()
 
         // Update log quantity text
         utils::RenderText(font, renderer, std::to_string(player.getLog()).c_str(), 48, 144);
+        // Update honey quantity text
+        utils::RenderText(font, renderer, std::to_string(player.getHoney()).c_str(), 48, 240);
 
         // Render the changing texts
         SDL_RenderPresent(renderer);

@@ -27,6 +27,7 @@ constexpr char* TREE_TEXTURE_PATH = "../../ressources/gfx/tree.png";
 constexpr char* EMPTY_TERRAIN_TEXTURE_PATH = "../../ressources/gfx/empty.png";
 constexpr char* OVERLAY_TEXTURE_PATH = "../../ressources/gfx/overlay.png";
 constexpr char* LOG_TEXTURE_PATH = "../../ressources/gfx/log.png";
+constexpr char* HONEY_TEXTURE_PATH = "../../ressources/gfx/honey.png";
 
 // Music path
 constexpr char* GAME_MUSIC_PATH = "../../ressources/audio/Duck-Sandstorm.mp3";

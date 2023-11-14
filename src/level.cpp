@@ -49,6 +49,10 @@ Level::Level(RenderWindow &window, Mix_Music* music) :
     platforms.push_back(Platform(Vector2f(8, 20),
         window.loadTexture(LOG_TEXTURE_PATH), 16, 16,
         std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+    // Honey
+    platforms.push_back(Platform(Vector2f(8, 44),
+        window.loadTexture(HONEY_TEXTURE_PATH), 16, 16,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
 
     // Play the music in loop
     if (Mix_PlayMusic(music, -1) == -1)

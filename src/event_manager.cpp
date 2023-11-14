@@ -23,7 +23,7 @@ void EventManager::processEvents(Player &player, Entity entities)
 
                 if (utils::clickOnEntity(mouseX / SCALE_FACTOR, mouseY / SCALE_FACTOR, entityPosition))
                     {
-                        player.addLog();
+                        player.addForest();
                     }
             }
             break;
