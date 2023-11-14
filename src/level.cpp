@@ -15,6 +15,7 @@ Level::Level(RenderWindow &window, Mix_Music* music) :
         {
             if (w == 0)
             {
+                // Overlay
                 platforms.push_back(Platform(Vector2f(w, h),
                     window.loadTexture(OVERLAY_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
                     std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
@@ -44,6 +45,10 @@ Level::Level(RenderWindow &window, Mix_Music* music) :
             }
         }
     }
+    // Log
+    platforms.push_back(Platform(Vector2f(8, 20),
+        window.loadTexture(LOG_TEXTURE_PATH), 16, 16,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
 
     // Play the music in loop
     if (Mix_PlayMusic(music, -1) == -1)

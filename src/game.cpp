@@ -52,7 +52,7 @@ void Game::run()
         utils::RenderText(font, renderer, std::to_string(timer).c_str(), 48, 48);
 
         // Update log quantity text
-        utils::RenderText(font, renderer, std::to_string(player.getLog()).c_str(), 48, 80);
+        utils::RenderText(font, renderer, std::to_string(player.getLog()).c_str(), 48, 144);
 
         // Render the changing texts
         SDL_RenderPresent(renderer);
