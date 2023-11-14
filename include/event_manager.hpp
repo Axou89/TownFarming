@@ -2,6 +2,7 @@
 
 #include <SDL2/SDL.h>
 
+// Forward class Player
 class Player;
 
 class EventManager

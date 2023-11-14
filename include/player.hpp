@@ -6,6 +6,7 @@
 
 #include "event_manager.hpp"
 
+// Forward class EventManager
 class EventManager;
 
 class Player
