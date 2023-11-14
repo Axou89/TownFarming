@@ -61,6 +61,7 @@ void Game::run()
         }
 
         // Update timer text
+        SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
         timer = (int)utils::hireTimeInSeconds();
         surface = TTF_RenderText_Solid(font, std::to_string(timer).c_str(), color);
