@@ -46,4 +46,10 @@ namespace utils
         SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
     }
+
+    // Utility function to check if a point is within a frame
+    inline bool clickOnEntity(int x, int y, const Vector2f &entityPosition)
+    {
+        return x >= entityPosition.x && x <= entityPosition.x + 32 && y >= entityPosition.y && y <= entityPosition.y + 32;
+    }
 }

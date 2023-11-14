@@ -11,11 +11,16 @@ class Level
 public:
     Level(RenderWindow &window, Mix_Music* music);
     ~Level();
+
+    Entity getEntities() { return entities; }
     
     void render(RenderWindow &window);
+    // Update 
+    void update();
 
 private:
     RenderWindow &window;
     std::vector<Platform> platforms;
     Mix_Music* music;
+    Entity entities;
 };

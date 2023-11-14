@@ -2,9 +2,10 @@
 
 #include "event_manager.hpp"
 #include "player.hpp"
+#include "utils.hpp"
 
 // Process the game events
-void EventManager::processEvents(Player &player)
+void EventManager::processEvents(Player &player, Entity entities)
 {
     while (SDL_PollEvent(&event))
     {
@@ -16,8 +17,14 @@ void EventManager::processEvents(Player &player)
         case SDL_MOUSEBUTTONDOWN:
             if (event.button.button == SDL_BUTTON_LEFT)
             {
-                std::cout << "Left mouse button pressed" << std::endl;
-                player.addLog();
+                int mouseX = event.button.x;
+                int mouseY = event.button.y;
+                Vector2f entityPosition = entities.getPosition();
+
+                if (utils::clickOnEntity(mouseX / SCALE_FACTOR, mouseY / SCALE_FACTOR, entityPosition))
+                    {
+                        player.addLog();
+                    }
             }
             break;
         }

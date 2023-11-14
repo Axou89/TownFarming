@@ -35,7 +35,7 @@ void Game::run()
         currentTime = newTime;
         accumulator += frameTime;
 
-        eventManager.processEvents(player);
+        eventManager.processEvents(player, level.getEntities());
 
         while (accumulator >= timeStep)
         {
