@@ -2,6 +2,8 @@
 
 #include <SDL2/SDL.h>
 
+class Player;
+
 class EventManager
 {
 public:
@@ -12,7 +14,7 @@ public:
 
     bool isGameRunning() const { return gameRunning; }
 
-    void processEvents();
+    void processEvents(Player &player);
 
 private:
     // Structure which contains the event type and the datas related

@@ -1,9 +1,10 @@
 #include <iostream>
 
 #include "event_manager.hpp"
+#include "player.hpp"
 
 // Process the game events
-void EventManager::processEvents()
+void EventManager::processEvents(Player &player)
 {
     while (SDL_PollEvent(&event))
     {
@@ -16,6 +17,7 @@ void EventManager::processEvents()
             if (event.button.button == SDL_BUTTON_LEFT)
             {
                 std::cout << "Left mouse button pressed" << std::endl;
+                player.addLog();
             }
             break;
         }

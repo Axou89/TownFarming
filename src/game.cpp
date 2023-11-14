@@ -35,7 +35,7 @@ void Game::run()
         currentTime = newTime;
         accumulator += frameTime;
 
-        eventManager.processEvents();
+        eventManager.processEvents(player);
 
         while (accumulator >= timeStep)
         {
