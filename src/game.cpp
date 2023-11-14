@@ -25,7 +25,6 @@ void Game::run()
     // Overlay constants
     TTF_Font *font = utils::loadFont(FONT_PATH, 24);
     SDL_Renderer *renderer = window.getRenderer();
-    // End overlay
 
     // Game loop
     while (eventManager.isGameRunning())
@@ -45,17 +44,20 @@ void Game::run()
 
         renderManager.render();
 
+        // Display static text
+        utils::RenderText(font, renderer, "Timer", 32, 16);
+
         // Update timer text
         int timer = (int)utils::hireTimeInSeconds();
-        utils::RenderText(font, renderer, std::to_string(timer).c_str(), 16);
+        utils::RenderText(font, renderer, std::to_string(timer).c_str(), 48, 48);
 
         // Update log quantity text
-        utils::RenderText(font, renderer, std::to_string(player.getLog()).c_str(), 48);
+        utils::RenderText(font, renderer, std::to_string(player.getLog()).c_str(), 48, 80);
 
-        // Render the overlay texts
+        // Render the changing texts
         SDL_RenderPresent(renderer);
     }
-	
+
     TTF_CloseFont(font);
 }
 

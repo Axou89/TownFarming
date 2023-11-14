@@ -34,11 +34,11 @@ namespace utils
     }
 
     // Render the text and display it
-    inline void RenderText(TTF_Font *font, SDL_Renderer *renderer, const char *text, int positionY)
+    inline void RenderText(TTF_Font *font, SDL_Renderer *renderer, const char *text, int positionX, int positionY)
     {
         SDL_Surface *surface = TTF_RenderText_Solid(font, text, TEXT_COLOR);
         SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
-        SDL_Rect dstrect = { 32, positionY, 0, 0 };
+        SDL_Rect dstrect = { positionX, positionY, 0, 0 };
         SDL_QueryTexture(texture, NULL, NULL, &dstrect.w, &dstrect.h);
 
         SDL_RenderCopy(renderer, texture, NULL, &dstrect);

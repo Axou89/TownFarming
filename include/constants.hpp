@@ -31,7 +31,7 @@ constexpr char* OVERLAY_TEXTURE_PATH = "../../ressources/gfx/overlay.png";
 constexpr char* GAME_MUSIC_PATH = "../../ressources/audio/Duck-Sandstorm.mp3";
 
 // Font path
-constexpr char* FONT_PATH = "arial.ttf";
+constexpr char* FONT_PATH = "../../ressources/fonts/arial.ttf";
 
 // Text color
 constexpr SDL_Color TEXT_COLOR = { 255, 255, 255 };
