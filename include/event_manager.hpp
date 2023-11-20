@@ -1,6 +1,8 @@
 #pragma once
 
 #include <SDL2/SDL.h>
+#include <vector>
+
 #include "entity.hpp"
 
 // Forward class Player
@@ -16,7 +18,7 @@ public:
 
     bool isGameRunning() const { return gameRunning; }
 
-    void processEvents(Player &player, Entity entities);
+    void processEvents(Player &player, std::vector<Entity> entities);
 
 private:
     // Structure which contains the event type and the datas related

@@ -4,11 +4,18 @@
 
 // Constructor
 Level::Level(RenderWindow &window, Mix_Music* music) :
-    window(window), music(music),
-    entities(Entity(Vector2f(64, 64),
-        window.loadTexture(TREE_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
-        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)))
+    window(window), music(music)
 {
+    entities.push_back(Entity(Vector2f(64, 0),
+        window.loadTexture(TREE_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+    entities.push_back(Entity(Vector2f(128, 0),
+        window.loadTexture(MINE_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+    entities.push_back(Entity(Vector2f(192, 0),
+        window.loadTexture(FIELD_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+
     for (int w = 0; w < (WINDOW_WIDTH / SCALE_FACTOR); w += SPRITE_WIDTH)
     {
         for (int h = 0; h < (WINDOW_HEIGHT / SCALE_FACTOR); h += SPRITE_HEIGHT)
@@ -78,7 +85,10 @@ void Level::render(RenderWindow &window)
     }
 
     // Render entities
-    window.render(entities);
+    for (Entity entity : entities)
+    {
+        window.render(entity);
+    }
 }
 
 void Level::update()

@@ -19,15 +19,25 @@ constexpr int SPRITE_HEIGHT = 32;
 // Scale factor for sprites
 constexpr int SCALE_FACTOR = 4;
 
-// Texture path
+// Background texture path
 constexpr char* VERTICAL_ROAD_TEXTURE_PATH = "../../ressources/gfx/vertical_road.png";
 constexpr char* HORIZONTAL_ROAD_TEXTURE_PATH = "../../ressources/gfx/horizontal_road.png";
 constexpr char* CROSS_ROAD_TEXTURE_PATH = "../../ressources/gfx/cross_road.png";
-constexpr char* TREE_TEXTURE_PATH = "../../ressources/gfx/tree.png";
 constexpr char* EMPTY_TERRAIN_TEXTURE_PATH = "../../ressources/gfx/empty.png";
+
+// Entities texture path
+constexpr char* TREE_TEXTURE_PATH = "../../ressources/gfx/tree.png";
+constexpr char* FIELD_TEXTURE_PATH = "../../ressources/gfx/field.png";
+constexpr char* MINE_TEXTURE_PATH = "../../ressources/gfx/mine.png";
+
+// Overlay texture path
 constexpr char* OVERLAY_TEXTURE_PATH = "../../ressources/gfx/overlay.png";
 constexpr char* LOG_TEXTURE_PATH = "../../ressources/gfx/log.png";
 constexpr char* HONEY_TEXTURE_PATH = "../../ressources/gfx/honey.png";
+constexpr char* COAL_TEXTURE_PATH = "../../ressources/gfx/coal.png";
+constexpr char* IRON_TEXTURE_PATH = "../../ressources/gfx/iron.png";
+constexpr char* CARROT_TEXTURE_PATH = "../../ressources/gfx/carrot.png";
+constexpr char* SALAD_TEXTURE_PATH = "../../ressources/gfx/salad.png";
 
 // Music path
 constexpr char* GAME_MUSIC_PATH = "../../ressources/audio/Duck-Sandstorm.mp3";

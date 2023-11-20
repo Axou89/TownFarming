@@ -12,7 +12,7 @@ public:
     Level(RenderWindow &window, Mix_Music* music);
     ~Level();
 
-    Entity getEntities() { return entities; }
+    std::vector<Entity> getEntities() { return entities; }
     
     void render(RenderWindow &window);
     // Update 
@@ -22,5 +22,5 @@ private:
     RenderWindow &window;
     std::vector<Platform> platforms;
     Mix_Music* music;
-    Entity entities;
+    std::vector<Entity> entities;
 };

@@ -5,7 +5,7 @@
 #include "utils.hpp"
 
 // Process the game events
-void EventManager::processEvents(Player &player, Entity entities)
+void EventManager::processEvents(Player &player, std::vector<Entity> entities)
 {
     while (SDL_PollEvent(&event))
     {
@@ -19,12 +19,15 @@ void EventManager::processEvents(Player &player, Entity entities)
             {
                 int mouseX = event.button.x;
                 int mouseY = event.button.y;
-                Vector2f entityPosition = entities.getPosition();
 
-                if (utils::clickOnEntity(mouseX / SCALE_FACTOR, mouseY / SCALE_FACTOR, entityPosition))
+                for (Entity entity : entities)
+                {
+                    Vector2f entityPosition = entity.getPosition();
+                    if (utils::clickOnEntity(mouseX / SCALE_FACTOR, mouseY / SCALE_FACTOR, entityPosition))
                     {
                         player.addForest();
                     }
+                }
             }
             break;
         }
