@@ -6,15 +6,15 @@
 Level::Level(RenderWindow &window, Mix_Music* music) :
     window(window), music(music)
 {
-    entities.push_back(Entity(Vector2f(64, 0),
+    zones.push_back(Zone(Vector2f(64, 0),
         window.loadTexture(TREE_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
-        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
-    entities.push_back(Entity(Vector2f(128, 0),
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y), "forest"));
+    zones.push_back(Zone(Vector2f(128, 0),
         window.loadTexture(MINE_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
-        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
-    entities.push_back(Entity(Vector2f(192, 0),
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y), "mine"));
+    zones.push_back(Zone(Vector2f(192, 0),
         window.loadTexture(FIELD_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
-        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y), "farm"));
 
     for (int w = 0; w < (WINDOW_WIDTH / SCALE_FACTOR); w += SPRITE_WIDTH)
     {
@@ -101,9 +101,9 @@ void Level::render(RenderWindow &window)
     }
 
     // Render entities
-    for (Entity entity : entities)
+    for (Zone zone : zones)
     {
-        window.render(entity);
+        window.render(zone);
     }
 }
 

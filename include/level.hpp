@@ -2,6 +2,7 @@
 
 #include "render_window.hpp"
 #include "platform.hpp"
+#include "zone.hpp"
 
 #include <vector>
 #include <SDL2/SDL_mixer.h>
@@ -12,7 +13,7 @@ public:
     Level(RenderWindow &window, Mix_Music* music);
     ~Level();
 
-    std::vector<Entity> getEntities() { return entities; }
+    std::vector<Zone> getZones() { return zones; }
     
     void render(RenderWindow &window);
     // Update 
@@ -22,5 +23,5 @@ private:
     RenderWindow &window;
     std::vector<Platform> platforms;
     Mix_Music* music;
-    std::vector<Entity> entities;
+    std::vector<Zone> zones;
 };

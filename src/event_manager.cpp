@@ -5,7 +5,7 @@
 #include "utils.hpp"
 
 // Process the game events
-void EventManager::processEvents(Player &player, std::vector<Entity> entities)
+void EventManager::processEvents(Player &player, std::vector<Zone> zones)
 {
     while (SDL_PollEvent(&event))
     {
@@ -20,14 +20,23 @@ void EventManager::processEvents(Player &player, std::vector<Entity> entities)
                 int mouseX = event.button.x;
                 int mouseY = event.button.y;
 
-                for (Entity entity : entities)
+                for (Zone zone : zones)
                 {
-                    Vector2f entityPosition = entity.getPosition();
-                    if (utils::clickOnEntity(mouseX / SCALE_FACTOR, mouseY / SCALE_FACTOR, entityPosition))
+                    Vector2f zonePosition = zone.getPosition();
+                    if (utils::clickOnEntity(mouseX / SCALE_FACTOR, mouseY / SCALE_FACTOR, zonePosition))
                     {
-                        player.addForest();
-                        player.addMine();
-                        player.addFarm();
+                        if (zone.getZoneType() == "forest")
+                        {
+                            player.addForest();
+                        }
+                        else if (zone.getZoneType() == "mine")
+                        {
+                            player.addMine();
+                        }
+                        else if (zone.getZoneType() == "farm")
+                        {
+                            player.addFarm();
+                        }
                     }
                 }
             }

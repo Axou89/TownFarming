@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "entity.hpp"
+#include "zone.hpp"
 
 // Forward class Player
 class Player;
@@ -18,7 +19,7 @@ public:
 
     bool isGameRunning() const { return gameRunning; }
 
-    void processEvents(Player &player, std::vector<Entity> entities);
+    void processEvents(Player &player, std::vector<Zone> entities);
 
 private:
     // Structure which contains the event type and the datas related
