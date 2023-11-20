@@ -60,6 +60,22 @@ Level::Level(RenderWindow &window, Mix_Music* music) :
     platforms.push_back(Platform(Vector2f(8, 44),
         window.loadTexture(HONEY_TEXTURE_PATH), 16, 16,
         std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+    // Coal
+    platforms.push_back(Platform(Vector2f(8, 68),
+        window.loadTexture(COAL_TEXTURE_PATH), 16, 16,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+    // Iron
+    platforms.push_back(Platform(Vector2f(8, 92),
+        window.loadTexture(IRON_TEXTURE_PATH), 16, 16,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+    // Carrot
+    platforms.push_back(Platform(Vector2f(8, 116),
+        window.loadTexture(CARROT_TEXTURE_PATH), 16, 16,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+    // Salad
+    platforms.push_back(Platform(Vector2f(8, 140),
+        window.loadTexture(SALAD_TEXTURE_PATH), 16, 16,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
 
     // Play the music in loop
     if (Mix_PlayMusic(music, -1) == -1)

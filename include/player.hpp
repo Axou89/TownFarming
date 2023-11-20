@@ -19,10 +19,12 @@ public:
     int getHoney() { return inventory["honey"]; }
     int getCoal() { return inventory["coal"]; }
     int getIron() { return inventory["iron"]; }
-    int getWheat() { return inventory["wheat"]; }
+    int getCarrot() { return inventory["carrot"]; }
     int getSalad() { return inventory["salad"]; }
 
     void addForest();
+    void addMine();
+    void addFarm();
 
 private:
     EventManager &eventManager;

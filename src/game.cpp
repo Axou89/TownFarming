@@ -63,6 +63,14 @@ void Game::run()
         utils::RenderText(font, renderer, std::to_string(player.getLog()).c_str(), 48, 144);
         // Update honey quantity text
         utils::RenderText(font, renderer, std::to_string(player.getHoney()).c_str(), 48, 240);
+        // Update coal quantity text
+        utils::RenderText(font, renderer, std::to_string(player.getCoal()).c_str(), 48, 336);
+        // Update iron quantity text
+        utils::RenderText(font, renderer, std::to_string(player.getIron()).c_str(), 48, 432);
+        // Update carrot quantity text
+        utils::RenderText(font, renderer, std::to_string(player.getCarrot()).c_str(), 48, 528);
+        // Update salad quantity text
+        utils::RenderText(font, renderer, std::to_string(player.getSalad()).c_str(), 48, 624);
 
         // Render the changing texts
         SDL_RenderPresent(renderer);

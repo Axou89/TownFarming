@@ -26,6 +26,8 @@ void EventManager::processEvents(Player &player, std::vector<Entity> entities)
                     if (utils::clickOnEntity(mouseX / SCALE_FACTOR, mouseY / SCALE_FACTOR, entityPosition))
                     {
                         player.addForest();
+                        player.addMine();
+                        player.addFarm();
                     }
                 }
             }
