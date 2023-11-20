@@ -26,6 +26,8 @@ void Game::run()
     TTF_Font *font = utils::loadFont(FONT_PATH, 24);
     SDL_Renderer *renderer = window.getRenderer();
 
+    int lastAction = 0;
+
     // Game loop
     while (eventManager.isGameRunning())
     {
@@ -34,6 +36,7 @@ void Game::run()
         float frameTime = newTime - currentTime;
         currentTime = newTime;
         accumulator += frameTime;
+        int timer = int(currentTime);
 
         eventManager.processEvents(player, level.getEntities());
 
@@ -42,13 +45,18 @@ void Game::run()
             accumulator -= timeStep;
         }
 
+        // Perform action each second
+        if (timer - lastAction >= 1)
+        {
+            lastAction = timer;
+        }
+
         renderManager.render();
 
         // Display static text
         utils::RenderText(font, renderer, "Timer", 32, 16);
 
         // Update timer text
-        int timer = (int)utils::hireTimeInSeconds();
         utils::RenderText(font, renderer, std::to_string(timer).c_str(), 48, 48);
 
         // Update log quantity text
