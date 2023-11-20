@@ -48,6 +48,9 @@ void Game::run()
         // Perform action each second
         if (timer - lastAction >= 1)
         {
+            player.addLog();
+            player.addCoal();
+            player.addCarrot();
             lastAction = timer;
         }
 

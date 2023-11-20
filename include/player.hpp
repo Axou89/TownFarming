@@ -15,6 +15,7 @@ public:
     // Constructor
     Player(EventManager &p_eventManager);
 
+    // Getters
     int getLog() { return inventory["log"]; }
     int getHoney() { return inventory["honey"]; }
     int getCoal() { return inventory["coal"]; }
@@ -22,9 +23,15 @@ public:
     int getCarrot() { return inventory["carrot"]; }
     int getSalad() { return inventory["salad"]; }
 
+    // Add resources on click
     void addForest();
     void addMine();
     void addFarm();
+
+    // Add resources automatically
+    void addLog() { inventory["log"] += 1; };
+    void addCoal() { inventory["coal"] += 1; };
+    void addCarrot() { inventory["carrot"] += 1; };
 
 private:
     EventManager &eventManager;
