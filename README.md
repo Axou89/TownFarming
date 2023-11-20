@@ -8,5 +8,5 @@
 
 ## How to compile
 ```bash
-g++ -O2 src/*.cpp -o bin/release/TownFarming -IC:/SDL2/include -Iinclude -LC:/SDL2/lib -w -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -mwindows
+g++ -g src/*.cpp -o bin/debug/TownFarming -IC:/SDL2/include -Iinclude -LC:/SDL2/lib -w -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -mconsole
 ```
