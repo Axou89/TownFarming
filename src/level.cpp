@@ -76,6 +76,10 @@ Level::Level(RenderWindow &window, Mix_Music* music) :
     platforms.push_back(Platform(Vector2f(8, 140),
         window.loadTexture(SALAD_TEXTURE_PATH), 16, 16,
         std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
+    // Add zone
+    platforms.push_back(Platform(Vector2f(8, 164),
+        window.loadTexture(ADD_ZONE_TEXTURE_PATH), 16, 16,
+        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
 
     // Play the music in loop
     if (Mix_PlayMusic(music, -1) == -1)
