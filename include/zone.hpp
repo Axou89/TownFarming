@@ -10,6 +10,11 @@ public:
 
     // Getters
     std::string getZoneType() { return zoneType; }
+    std::string getPostionString() { Vector2f entityPosition = getPosition(); return std::to_string(entityPosition.x) + ", " + std::to_string(entityPosition.y); }
+
+    // Create new zone
+    Zone createZone(SDL_Texture* texture, int frameWidth, int frameHeight,
+        std::pair<int, int> spriteSheetConfiguration, std::string zoneType);
 
 private:
     std::string zoneType;

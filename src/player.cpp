@@ -71,3 +71,12 @@ void Player::addFarm()
         inventory["salad"] += 1;
     }
 }
+
+bool::Player::canBuildFarmingZone()
+{
+    if (inventory["log"] >= 30 && inventory["coal"] >= 30 && inventory["carrot"] >= 30)
+    {
+        return true;
+    }
+    return false;
+}

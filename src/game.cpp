@@ -38,7 +38,7 @@ void Game::run()
         accumulator += frameTime;
         int timer = int(currentTime);
 
-        eventManager.processEvents(player, level.getZones());
+        eventManager.processEvents(player, level.getZones(), window);
 
         while (accumulator >= timeStep)
         {

@@ -52,4 +52,10 @@ namespace utils
     {
         return x >= entityPosition.x && x <= entityPosition.x + 32 && y >= entityPosition.y && y <= entityPosition.y + 32;
     }
+
+    // Utility function to check if clicked on add zone button
+    inline bool clickOnAddZoneButton(int x, int y)
+    {
+        return x >= 8*4 && x <= 24*4 && y >= 164*4 && y <= 180*4;
+    }
 }

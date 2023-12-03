@@ -33,6 +33,9 @@ public:
     void addCoal() { inventory["coal"] += 1; };
     void addCarrot() { inventory["carrot"] += 1; };
 
+    // Check if the player has enough resources to build a zone
+    bool canBuildFarmingZone();
+
 private:
     EventManager &eventManager;
     std::map<std::string, int> inventory;

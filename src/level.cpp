@@ -6,12 +6,15 @@
 Level::Level(RenderWindow &window, Mix_Music* music) :
     window(window), music(music)
 {
+    // Add base forest zone
     zones.push_back(Zone(Vector2f(64, 0),
         window.loadTexture(TREE_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
         std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y), "forest"));
+    // Add base mine zone
     zones.push_back(Zone(Vector2f(128, 0),
         window.loadTexture(MINE_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
         std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y), "mine"));
+    // Add base farm zone
     zones.push_back(Zone(Vector2f(192, 0),
         window.loadTexture(FIELD_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
         std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y), "farm"));
