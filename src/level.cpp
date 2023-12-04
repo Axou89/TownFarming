@@ -129,6 +129,17 @@ void Level::createZone(SDL_Texture* texture, int frameWidth, int frameHeight,
     } else {
         FARMING_ZONE_POSITION_X += 64;
     }
+
+    if (zoneType == "forest")
+    {
+        LOG_TO_ADD += 1;
+    } else if (zoneType == "mine")
+    {
+        COAL_TO_ADD += 1;
+    } else if (zoneType == "farm")
+    {
+        CARROT_TO_ADD += 1;
+    }
 }
 
 void Level::update()

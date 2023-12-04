@@ -5,6 +5,7 @@
 #include <string>
 
 #include "event_manager.hpp"
+#include "global_variables.hpp"
 
 // Forward class EventManager
 class EventManager;
@@ -29,9 +30,9 @@ public:
     void addFarm();
 
     // Add resources automatically
-    void addLog() { inventory["log"] += 1; };
-    void addCoal() { inventory["coal"] += 1; };
-    void addCarrot() { inventory["carrot"] += 1; };
+    void addLog() { inventory["log"] += LOG_TO_ADD; };
+    void addCoal() { inventory["coal"] += COAL_TO_ADD; };
+    void addCarrot() { inventory["carrot"] += CARROT_TO_ADD; };
 
     // Check if the player has enough resources to build a zone
     bool canBuildFarmingZone();
