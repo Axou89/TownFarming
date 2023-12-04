@@ -14,7 +14,7 @@ Player::Player(EventManager &p_eventManager) : eventManager(p_eventManager)
 
 void Player::addForest()
 {
-    inventory["log"] += 1;
+    inventory["log"] += 1 * MULTIPLICATOR_TO_ADD;
 
     // Set up a random number generator
     std::random_device rd;
@@ -26,7 +26,7 @@ void Player::addForest()
     // Generate a random number
     int randomNumber = distribution(gen);
 
-    if (randomNumber <= 10)
+    if (randomNumber <= 10 * MULTIPLICATOR_TO_ADD)
     {
         inventory["honey"] += 1;
     }
@@ -34,7 +34,7 @@ void Player::addForest()
 
 void Player::addMine()
 {
-    inventory["coal"] += 1;
+    inventory["coal"] += 1 * MULTIPLICATOR_TO_ADD;
 
     // Set up a random number generator
     std::random_device rd;
@@ -46,7 +46,7 @@ void Player::addMine()
     // Generate a random number
     int randomNumber = distribution(gen);
 
-    if (randomNumber <= 10)
+    if (randomNumber <= 10 * MULTIPLICATOR_TO_ADD)
     {
         inventory["iron"] += 1;
     }
@@ -54,7 +54,7 @@ void Player::addMine()
 
 void Player::addFarm()
 {
-    inventory["carrot"] += 1;
+    inventory["carrot"] += 1 * MULTIPLICATOR_TO_ADD;
 
     // Set up a random number generator
     std::random_device rd;
@@ -66,15 +66,15 @@ void Player::addFarm()
     // Generate a random number
     int randomNumber = distribution(gen);
 
-    if (randomNumber <= 10)
+    if (randomNumber <= 10 * MULTIPLICATOR_TO_ADD)
     {
         inventory["salad"] += 1;
     }
 }
 
-bool::Player::canBuildFarmingZone()
+bool Player::canBuildFarmingZone()
 {
-    if (inventory["log"] >= 1 && inventory["coal"] >= 1 && inventory["carrot"] >= 1)
+    if (inventory["log"] >= 50 && inventory["coal"] >= 50 && inventory["carrot"] >= 50)
     {
         return true;
     }
@@ -83,7 +83,30 @@ bool::Player::canBuildFarmingZone()
 
 void Player::buildFarmingZone()
 {
-    inventory["log"] -= 5;
-    inventory["coal"] -= 5;
-    inventory["carrot"] -= 5;
+    inventory["log"] -= 50;
+    inventory["coal"] -= 50;
+    inventory["carrot"] -= 50;
+}
+
+bool Player::canUpgradeFarmingZone()
+{
+    if (inventory["log"] >= 50 * MULTIPLICATOR_TO_ADD && inventory["coal"] >= 50 * MULTIPLICATOR_TO_ADD && 
+        inventory["carrot"] >= 50 * MULTIPLICATOR_TO_ADD && inventory["honey"] >= 5 * MULTIPLICATOR_TO_ADD && 
+        inventory["iron"] >= 5 * MULTIPLICATOR_TO_ADD && inventory["salad"] >= 5 * MULTIPLICATOR_TO_ADD)
+    {
+        return true;
+    }
+    return false;
+}
+
+void Player::upgradeFarmingZone()
+{
+    inventory["log"] -= 25 * MULTIPLICATOR_TO_ADD;
+    inventory["coal"] -= 25 * MULTIPLICATOR_TO_ADD;
+    inventory["carrot"] -= 25 * MULTIPLICATOR_TO_ADD;
+    inventory["honey"] -= 5 * MULTIPLICATOR_TO_ADD;
+    inventory["iron"] -= 5 * MULTIPLICATOR_TO_ADD;
+    inventory["salad"] -= 5 * MULTIPLICATOR_TO_ADD;
+
+    MULTIPLICATOR_TO_ADD += 1;
 }

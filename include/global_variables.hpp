@@ -8,3 +8,4 @@ extern int FARMING_ZONE_POSITION_Y;
 extern int LOG_TO_ADD;
 extern int COAL_TO_ADD;
 extern int CARROT_TO_ADD;
+extern int MULTIPLICATOR_TO_ADD;

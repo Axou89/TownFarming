@@ -57,6 +57,15 @@ void EventManager::processEvents(Player &player, RenderWindow &window, Level &le
                             zones[randomZoneType].getZoneType());
                     }
                 }
+
+                // Check if the player clicked on the upgrade zone button
+                if (utils::clickOnUpgradeZoneButton(mouseX, mouseY))
+                {
+                    if (player.canUpgradeFarmingZone())
+                    {
+                        player.upgradeFarmingZone();
+                    }
+                }
             }
             break;
         }

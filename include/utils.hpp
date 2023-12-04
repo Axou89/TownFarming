@@ -58,4 +58,10 @@ namespace utils
     {
         return x >= 8*4 && x <= 24*4 && y >= 164*4 && y <= 180*4;
     }
+
+    // Utility function to check if clicked on upgrade zone button
+    inline bool clickOnUpgradeZoneButton(int x, int y)
+    {
+        return x >= 8*4 && x <= 24*4 && y >= 188*4 && y <= 204*4;
+    }
 }

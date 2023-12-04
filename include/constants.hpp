@@ -39,6 +39,7 @@ constexpr char* IRON_TEXTURE_PATH = "../../ressources/gfx/iron.png";
 constexpr char* CARROT_TEXTURE_PATH = "../../ressources/gfx/carrot.png";
 constexpr char* SALAD_TEXTURE_PATH = "../../ressources/gfx/salad.png";
 constexpr char* ADD_ZONE_TEXTURE_PATH = "../../ressources/gfx/add.png";
+constexpr char* UPGRADE_ZONE_TEXTURE_PATH = "../../ressources/gfx/upgrade.png";
 
 // Music path
 constexpr char* GAME_MUSIC_PATH = "../../ressources/audio/Duck-Sandstorm.mp3";

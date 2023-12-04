@@ -30,15 +30,21 @@ public:
     void addFarm();
 
     // Add resources automatically
-    void addLog() { inventory["log"] += LOG_TO_ADD; };
-    void addCoal() { inventory["coal"] += COAL_TO_ADD; };
-    void addCarrot() { inventory["carrot"] += CARROT_TO_ADD; };
+    void addLog() { inventory["log"] += LOG_TO_ADD * MULTIPLICATOR_TO_ADD; };
+    void addCoal() { inventory["coal"] += COAL_TO_ADD * MULTIPLICATOR_TO_ADD; };
+    void addCarrot() { inventory["carrot"] += CARROT_TO_ADD * MULTIPLICATOR_TO_ADD; };
 
     // Check if the player has enough resources to build a zone
     bool canBuildFarmingZone();
 
     // Use ressources to build a zone
     void buildFarmingZone();
+
+    // Check if the player has enough resources to upgrade farming zones
+    bool canUpgradeFarmingZone();
+
+    // Use ressources to upgrade farming zones
+    void upgradeFarmingZone();
 
 private:
     EventManager &eventManager;
