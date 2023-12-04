@@ -19,6 +19,10 @@ public:
     // Update 
     void update();
 
+    // Create a new zone
+    void createZone(SDL_Texture* texture, int frameWidth, int frameHeight,
+        std::pair<int, int> spriteSheetConfiguration, std::string zoneType);
+
 private:
     RenderWindow &window;
     std::vector<Platform> platforms;

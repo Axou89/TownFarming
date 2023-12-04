@@ -1,0 +1,4 @@
+#pragma once
+
+int FARMING_ZONE_POSITION_X = 256;
+int FARMING_ZONE_POSITION_Y = 0;

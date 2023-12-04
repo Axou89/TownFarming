@@ -4,8 +4,8 @@
 #include <vector>
 
 #include "entity.hpp"
-#include "zone.hpp"
 #include "render_window.hpp"
+#include "level.hpp"
 
 // Forward class Player
 class Player;
@@ -20,7 +20,7 @@ public:
 
     bool isGameRunning() const { return gameRunning; }
 
-    void processEvents(Player &player, std::vector<Zone> zones, RenderWindow &window);
+    void processEvents(Player &player, RenderWindow &window, Level &level);
 
 private:
     // Structure which contains the event type and the datas related

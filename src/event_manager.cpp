@@ -5,7 +5,7 @@
 #include "utils.hpp"
 
 // Process the game events
-void EventManager::processEvents(Player &player, std::vector<Zone> zones, RenderWindow &window)
+void EventManager::processEvents(Player &player, RenderWindow &window, Level &level)
 {
     while (SDL_PollEvent(&event))
     {
@@ -19,6 +19,8 @@ void EventManager::processEvents(Player &player, std::vector<Zone> zones, Render
             {
                 int mouseX = event.button.x;
                 int mouseY = event.button.y;
+
+                std::vector<Zone> zones = level.getZones();
 
                 // Check if the player clicked on a farming zone
                 for (Zone zone : zones)
@@ -44,13 +46,15 @@ void EventManager::processEvents(Player &player, std::vector<Zone> zones, Render
                 // Check if the player clicked on the add zone button
                 if (utils::clickOnAddZoneButton(mouseX, mouseY))
                 {
-                    if (player.canBuildFarmingZone())
+                    if (player.canBuildFarmingZone() && zones.size() < 24)
                     {
+                        player.buildFarmingZone();
+
                         int randomZoneType = rand() % 3;
-                        zones.push_back(zones[zones.size()].createZone(window.loadTexture(TREE_TEXTURE_PATH),
+                        level.createZone(zones[randomZoneType].getTexture(),
                             SPRITE_WIDTH, SPRITE_HEIGHT,
                             std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y),
-                            zones[randomZoneType].getZoneType()));
+                            zones[randomZoneType].getZoneType());
                     }
                 }
             }

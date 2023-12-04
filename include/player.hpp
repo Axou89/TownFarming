@@ -36,6 +36,9 @@ public:
     // Check if the player has enough resources to build a zone
     bool canBuildFarmingZone();
 
+    // Use ressources to build a zone
+    void buildFarmingZone();
+
 private:
     EventManager &eventManager;
     std::map<std::string, int> inventory;

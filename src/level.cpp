@@ -1,6 +1,7 @@
 #include "level.hpp"
 #include "platform.hpp"
 #include "constants.hpp"
+#include "global_variables.hpp"
 
 // Constructor
 Level::Level(RenderWindow &window, Mix_Music* music) :
@@ -111,6 +112,22 @@ void Level::render(RenderWindow &window)
     for (Zone zone : zones)
     {
         window.render(zone);
+    }
+}
+
+// Create new zone
+void Level::createZone(SDL_Texture* texture, int frameWidth, int frameHeight,
+    std::pair<int, int> spriteSheetConfiguration, std::string zoneType)
+{
+    zones.push_back(Zone(Vector2f(FARMING_ZONE_POSITION_X, FARMING_ZONE_POSITION_Y),
+        texture, frameWidth, frameHeight,
+        spriteSheetConfiguration, zoneType));
+    if (FARMING_ZONE_POSITION_X == 384)
+    {
+        FARMING_ZONE_POSITION_X = 64;
+        FARMING_ZONE_POSITION_Y += 64;
+    } else {
+        FARMING_ZONE_POSITION_X += 64;
     }
 }
 
