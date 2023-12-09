@@ -42,7 +42,7 @@ constexpr char* ADD_ZONE_TEXTURE_PATH = "../../ressources/gfx/add.png";
 constexpr char* UPGRADE_ZONE_TEXTURE_PATH = "../../ressources/gfx/upgrade.png";
 
 // Music path
-constexpr char* GAME_MUSIC_PATH = "../../ressources/audio/Duck-Sandstorm.mp3";
+constexpr char* GAME_MUSIC_PATH = "../../ressources/audio/chill_music.mp3";
 
 // Font path
 constexpr char* FONT_PATH = "../../ressources/fonts/arial.ttf";
