@@ -16,7 +16,7 @@ void EventManager::processEvents(Player &player, Level &level)
             gameFinished = false;
             break;
         case SDL_MOUSEBUTTONDOWN:
-            if (event.button.button == SDL_BUTTON_LEFT)
+            if (event.button.button == SDL_BUTTON_LEFT && !gamePaused)
             {
                 int mouseX = event.button.x;
                 int mouseY = event.button.y;
@@ -78,6 +78,9 @@ void EventManager::processEvents(Player &player, Level &level)
                 gameFinished = false;
                 break;
             }
+            case SDLK_RETURN:
+                gamePaused = !gamePaused;
+                break;
         }
     }
 }

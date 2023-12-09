@@ -2,6 +2,8 @@
 #include "utils.hpp"
 #include "constants.hpp"
 
+#include <cmath>
+
 // Constructor
 Game::Game() :
     currentTime(utils::hireTimeInSeconds()),
@@ -28,32 +30,36 @@ void Game::run()
     SDL_Renderer *renderer = window.getRenderer();
 
     int lastAction = 0;
+    int timer = 0;
 
     // Game loop
     while (eventManager.isGameRunning())
     {
-        // Calculate logic game frames beside the rendered frames
-        float newTime = utils::hireTimeInSeconds();
-        float frameTime = newTime - currentTime;
-        currentTime = newTime;
-        accumulator += frameTime;
-        // Time in seconds
-        int timer = int(currentTime);
-
         eventManager.processEvents(player, level);
 
-        while (accumulator >= timeStep)
+        if (!eventManager.isGamePaused())
         {
-            accumulator -= timeStep;
-        }
+            // Calculate logic game frames beside the rendered frames
+            float newTime = utils::hireTimeInSeconds();
+            float frameTime = newTime - currentTime;
+            currentTime = newTime;
+            accumulator += frameTime;
+            // Time in seconds
+            timer = std::floor(currentTime);
 
-        // Perform action each second
-        if (timer - lastAction >= 1)
-        {
-            player.addLog();
-            player.addCoal();
-            player.addCarrot();
-            lastAction = timer;
+            while (accumulator >= timeStep)
+            {
+                accumulator -= timeStep;
+            }
+
+            // Perform action each second
+            if (timer - lastAction >= 1)
+            {
+                player.addLog();
+                player.addCoal();
+                player.addCarrot();
+                lastAction = timer;
+            }
         }
 
         renderManager.render();
