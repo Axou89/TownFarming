@@ -20,9 +20,11 @@ void EndGameMenu::render(SDL_Renderer *renderer, int score)
 {
     SDL_RenderCopy(renderer, backgroundTexture, NULL, NULL);
 
-    std::string scoreString = "Your score : " + std::to_string(score);
+    std::string scoreString = "Your score is : " + std::to_string(score);
 
-    utils::RenderEndText(font, renderer, scoreString.c_str(), WINDOW_WIDTH/2 - 100, WINDOW_HEIGHT/2 - 100);
+    utils::RenderEndText(font, renderer, "Thanks for playing Town Farming", WINDOW_WIDTH/2 - 220, WINDOW_HEIGHT/2 - 400);
+    utils::RenderEndText(font, renderer, scoreString.c_str(), WINDOW_WIDTH/2 - 100, WINDOW_HEIGHT/2 - 150);
+    utils::RenderEndText(font, renderer, "Press ESC to quit", WINDOW_WIDTH/2 - 120, WINDOW_HEIGHT/2 + 300);
 
     SDL_RenderPresent(renderer);
 }
