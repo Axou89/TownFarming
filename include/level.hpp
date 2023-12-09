@@ -23,6 +23,8 @@ public:
     void createZone(SDL_Texture* texture, int frameWidth, int frameHeight,
         std::pair<int, int> spriteSheetConfiguration, std::string zoneType);
 
+    void cleanUp();
+
 private:
     RenderWindow &window;
     std::vector<Platform> platforms;

@@ -11,6 +11,7 @@
 #include "render_window.hpp"
 #include "level.hpp"
 #include "player.hpp"
+#include "end_game_menu.hpp"
 
 class Game
 {
@@ -33,4 +34,5 @@ private:
     RenderManager renderManager;
     Level level;
     Player player;
+    EndGameMenu endGameMenu;
 };

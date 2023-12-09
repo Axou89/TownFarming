@@ -11,7 +11,8 @@ Game::Game() :
     level(window, loadMusic(GAME_MUSIC_PATH)),
     player(player),
     updateManager(eventManager, level),
-    renderManager(window, level) {}
+    renderManager(window, level),
+    endGameMenu(window.getRenderer()) {}
 
 // Destructor
 Game::~Game()
@@ -36,9 +37,10 @@ void Game::run()
         float frameTime = newTime - currentTime;
         currentTime = newTime;
         accumulator += frameTime;
+        // Time in seconds
         int timer = int(currentTime);
 
-        eventManager.processEvents(player, window, level);
+        eventManager.processEvents(player, level);
 
         while (accumulator >= timeStep)
         {
@@ -77,24 +79,48 @@ void Game::run()
 
         // Render the changing texts
         SDL_RenderPresent(renderer);
+
+        // End the game
+        if (timer >= 2) {
+            int score = player.getLog() + player.getHoney() * 5 + player.getCoal() + player.getIron() * 5 + player.getCarrot() + player.getSalad() * 5;
+
+            while (eventManager.isGameFinished())
+            {
+                // Calculate logic game frames beside the rendered frames
+                float newTime = utils::hireTimeInSeconds();
+                float frameTime = newTime - currentTime;
+                currentTime = newTime;
+                accumulator += frameTime;
+
+                while (accumulator >= timeStep)
+                {
+                    accumulator -= timeStep;
+                }
+                
+                eventManager.processEvents(player, level);
+                endGameMenu.render(renderer, score);
+            }
+        }
     }
 
     TTF_CloseFont(font);
 }
 
-// Clean all ressources
+// Clean all resources
 void Game::cleanUp()
 {
-    // Clean ressources from SDL_mixer
+    // Clean resources from SDL_mixer
     Mix_CloseAudio();
-    // Clean ressources from the rendered window
+    // Clean resources from the rendered window
     window.cleanUp();
-    // Clean ressources from SDL_image
+    // Clean resources from SDL_image
     IMG_Quit();
-    // Clean ressources from SDL
+    // Clean resources from SDL
     SDL_Quit();
-    // Clean ressources from SDL_ttf
+    // Clean resources from SDL_ttf
     TTF_Quit();
+    // Clean resources from End Game Menu
+    endGameMenu.cleanUp();
 }
 
 // Load the game music

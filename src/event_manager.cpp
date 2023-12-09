@@ -5,7 +5,7 @@
 #include "utils.hpp"
 
 // Process the game events
-void EventManager::processEvents(Player &player, RenderWindow &window, Level &level)
+void EventManager::processEvents(Player &player, Level &level)
 {
     while (SDL_PollEvent(&event))
     {
@@ -13,6 +13,7 @@ void EventManager::processEvents(Player &player, RenderWindow &window, Level &le
         {
         case SDL_QUIT:
             gameRunning = false;
+            gameFinished = false;
             break;
         case SDL_MOUSEBUTTONDOWN:
             if (event.button.button == SDL_BUTTON_LEFT)
@@ -50,6 +51,7 @@ void EventManager::processEvents(Player &player, RenderWindow &window, Level &le
                     {
                         player.buildFarmingZone();
 
+                        // Add a new random zone
                         int randomZoneType = rand() % 3;
                         level.createZone(zones[randomZoneType].getTexture(),
                             SPRITE_WIDTH, SPRITE_HEIGHT,

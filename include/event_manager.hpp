@@ -18,12 +18,19 @@ public:
     // Destructor
     ~EventManager() = default;
 
+    // Setters
+    void setGameRunning(bool p_gameRunning) { gameRunning = p_gameRunning; }
+    void setGameFinished(bool p_gameFinished) { gameFinished = p_gameFinished; }
+
     bool isGameRunning() const { return gameRunning; }
 
-    void processEvents(Player &player, RenderWindow &window, Level &level);
+    void processEvents(Player &player, Level &level);
+
+    bool isGameFinished() const { return gameFinished; }
 
 private:
     // Structure which contains the event type and the datas related
     SDL_Event event;
     bool gameRunning{true};
+    bool gameFinished {true};
 };

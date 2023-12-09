@@ -101,9 +101,9 @@ bool Player::canUpgradeFarmingZone()
 
 void Player::upgradeFarmingZone()
 {
-    inventory["log"] -= 25 * MULTIPLICATOR_TO_ADD;
-    inventory["coal"] -= 25 * MULTIPLICATOR_TO_ADD;
-    inventory["carrot"] -= 25 * MULTIPLICATOR_TO_ADD;
+    inventory["log"] -= 50 * MULTIPLICATOR_TO_ADD;
+    inventory["coal"] -= 50 * MULTIPLICATOR_TO_ADD;
+    inventory["carrot"] -= 50 * MULTIPLICATOR_TO_ADD;
     inventory["honey"] -= 5 * MULTIPLICATOR_TO_ADD;
     inventory["iron"] -= 5 * MULTIPLICATOR_TO_ADD;
     inventory["salad"] -= 5 * MULTIPLICATOR_TO_ADD;

@@ -149,3 +149,15 @@ void Level::createZone(SDL_Texture* texture, int frameWidth, int frameHeight,
 void Level::update()
 {
 }
+
+void Level::cleanUp()
+{
+    for (Platform platform : platforms)
+    {
+        SDL_DestroyTexture(platform.getTexture());
+    }
+    for (Zone zone : zones)
+    {
+        SDL_DestroyTexture(zone.getTexture());
+    }
+}

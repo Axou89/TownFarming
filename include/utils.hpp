@@ -64,4 +64,18 @@ namespace utils
     {
         return x >= 8*4 && x <= 24*4 && y >= 188*4 && y <= 204*4;
     }
+
+    // Render the text and display it (used for the end game menu)
+    inline void RenderEndText(TTF_Font *font, SDL_Renderer *renderer, const char *text, int positionX, int positionY)
+    {
+        SDL_Surface *textSurface = TTF_RenderText_Solid(font, text, TEXT_COLOR);
+        SDL_Texture *textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
+
+        SDL_Rect textRect = { positionX, positionY, textSurface->w, textSurface->h };
+
+        SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
+
+        SDL_FreeSurface(textSurface);
+        SDL_DestroyTexture(textTexture);
+    }
 }
