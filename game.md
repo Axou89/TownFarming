@@ -26,6 +26,9 @@ It contains the following information :
 - Upgrades farming zones button
 - Build random farming zones button
 
+## Keyboard shortcuts
+- `ESC` : exit the game
+
 ## Animation
 The farming zones are animated.
 
