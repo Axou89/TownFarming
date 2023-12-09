@@ -28,6 +28,7 @@ void Game::run()
     // Overlay constants
     TTF_Font *font = utils::loadFont(FONT_PATH, 24);
     SDL_Renderer *renderer = window.getRenderer();
+    Mix_VolumeMusic(64);
 
     int lastAction = 0;
     int timer = 0;
