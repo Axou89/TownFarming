@@ -70,6 +70,14 @@ void EventManager::processEvents(Player &player, Level &level)
                 }
             }
             break;
+        case SDL_KEYDOWN:
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_ESCAPE:
+                gameRunning = false;
+                gameFinished = false;
+                break;
+            }
         }
     }
 }
