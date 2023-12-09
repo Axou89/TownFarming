@@ -29,6 +29,8 @@ It contains the following information :
 ## Keyboard shortcuts
 - `ESC` : exit the game
 - `RETURN` : pause the game
+- `ARROW UP` : increase the volume of the music
+- `ARROW DOWN` : decrease the volume of the music
 
 ## Animation
 The farming zones are animated.

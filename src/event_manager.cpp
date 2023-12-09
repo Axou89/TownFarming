@@ -77,10 +77,19 @@ void EventManager::processEvents(Player &player, Level &level)
                 gameRunning = false;
                 gameFinished = false;
                 break;
-            }
             case SDLK_RETURN:
                 gamePaused = !gamePaused;
                 break;
+            case SDLK_DOWN:
+                volume = Mix_VolumeMusic(-1);
+                Mix_VolumeMusic(volume - 1);
+                break;
+            case SDLK_UP:
+                volume = Mix_VolumeMusic(-1);
+                Mix_VolumeMusic(volume + 1);
+                break;
+            }
+            break;
         }
     }
 }

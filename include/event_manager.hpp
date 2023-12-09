@@ -36,4 +36,5 @@ private:
     bool gameRunning{true};
     bool gameFinished {true};
     bool gamePaused{false};
+    int volume;
 };
