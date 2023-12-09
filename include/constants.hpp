@@ -53,3 +53,6 @@ constexpr SDL_Color TEXT_COLOR = { 255, 255, 255 };
 // Configuration of the platform sprite sheet
 constexpr int PLATFORM_SPRITE_SHEET_CONFIGURATION_X = 0;
 constexpr int PLATFORM_SPRITE_SHEET_CONFIGURATION_Y = 0;
+
+// End Game Menu background
+constexpr char* END_GAME_MENU_BACKGROUND_TEXTURE_PATH = "../../ressources/gfx/end_game_menu.jpg";
