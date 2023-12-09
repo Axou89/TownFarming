@@ -8,12 +8,12 @@ A game last 5 minutes.
 
 ## How to play
 Common resources are collected automatically.\
-But you can click on the built farming zone to collect more common resources and rare ones.\
-Use the resources to build or upgrades your farming zones.\
+But you can click on your farming zones to collect more common resources and rare ones.\
+Use the resources to build or upgrades your farming zones.
 
 ## Farming Zone / Resources
-There are 3 different farming zones : Forest, Mine, Farm.\
-Each zone produces 2 different resources, a common (100% drop rate) and a rare (10% drop rate).\
+There are 3 different farming zones types : Forest, Mine, Farm.\
+Each zone produces 2 different resources, a common (100% drop rate) and a rare (10% drop rate at first).
 - Forest : produces wood and honey
 - Mine : produces coal and iron
 - Farm : produces carrot and salad
@@ -23,16 +23,16 @@ The overlay is on the left side of the screen.\
 It contains the following information :
 - Timer
 - Resources owned
-- Upgrades farming zones
-- Build farming zones
+- Upgrades farming zones button
+- Build random farming zones button
 
 ## Animation
 The farming zones are animated.
 
-## Music
+## Sound effects
 Chill background music.
 
-## Additional features
+## Additional features to be implemented
 - Change the window size as you want
 - Change the volume of the music
 - Add new farming zones
