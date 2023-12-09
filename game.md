@@ -28,6 +28,7 @@ It contains the following information :
 
 ## Keyboard shortcuts
 - `ESC` : exit the game
+- `RETURN` : pause the game
 
 ## Animation
 The farming zones are animated.
