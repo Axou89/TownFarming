@@ -27,7 +27,7 @@ constexpr char* EMPTY_TERRAIN_TEXTURE_PATH = "../../ressources/gfx/empty.png";
 
 // Entities texture path
 constexpr char* TREE_TEXTURE_PATH = "../../ressources/gfx/tree_animation.png";
-constexpr char* FIELD_TEXTURE_PATH = "../../ressources/gfx/field.png";
+constexpr char* FIELD_TEXTURE_PATH = "../../ressources/gfx/field_animation.png";
 constexpr char* MINE_TEXTURE_PATH = "../../ressources/gfx/mine_animation.png";
 
 // Overlay texture path
