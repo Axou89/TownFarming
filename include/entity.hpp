@@ -18,6 +18,8 @@ public:
     SDL_Texture* getTexture() { return texture; }
     SDL_Rect getCurrentFrame() { return currentFrame; }
 
+    void updateAnimation();
+
 private:
     Vector2f position;
     SDL_Rect currentFrame;
@@ -25,4 +27,5 @@ private:
 
     std::pair<int, int> spriteSheetConfiguration{0, 0};
     std::pair<int, int> currentFrameCoordinates{0, 0};
+    int logicUpdateCounter {0};
 };

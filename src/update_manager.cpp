@@ -4,3 +4,9 @@
 
 // Constructor
 UpdateManager::UpdateManager(EventManager &eventManager, Level &level) : eventManager(eventManager), level(level) {}
+
+// Update the game
+void UpdateManager::update()
+{
+    level.update();
+}

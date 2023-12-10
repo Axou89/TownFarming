@@ -10,15 +10,15 @@ Level::Level(RenderWindow &window, Mix_Music* music) :
     // Add base forest zone
     zones.push_back(Zone(Vector2f(64, 0),
         window.loadTexture(TREE_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
-        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y), "forest"));
+        std::make_pair(ZONE_SPRITE_SHEET_CONFIGURATION_X, ZONE_SPRITE_SHEET_CONFIGURATION_Y), "forest"));
     // Add base mine zone
     zones.push_back(Zone(Vector2f(128, 0),
         window.loadTexture(MINE_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
-        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y), "mine"));
+        std::make_pair(ZONE_SPRITE_SHEET_CONFIGURATION_X, ZONE_SPRITE_SHEET_CONFIGURATION_Y), "mine"));
     // Add base farm zone
     zones.push_back(Zone(Vector2f(192, 0),
         window.loadTexture(FIELD_TEXTURE_PATH), SPRITE_WIDTH, SPRITE_HEIGHT,
-        std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y), "farm"));
+        std::make_pair(ZONE_SPRITE_SHEET_CONFIGURATION_X, ZONE_SPRITE_SHEET_CONFIGURATION_Y), "farm"));
 
     for (int w = 0; w < (WINDOW_WIDTH / SCALE_FACTOR); w += SPRITE_WIDTH)
     {
@@ -148,6 +148,10 @@ void Level::createZone(SDL_Texture* texture, int frameWidth, int frameHeight,
 
 void Level::update()
 {
+    for (Zone& zone : zones)
+    {
+        zone.updateAnimation();
+    }
 }
 
 void Level::cleanUp()

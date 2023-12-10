@@ -50,6 +50,7 @@ void Game::run()
 
             while (accumulator >= timeStep)
             {
+                updateManager.update();
                 accumulator -= timeStep;
             }
 

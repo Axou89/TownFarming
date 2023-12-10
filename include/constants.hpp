@@ -26,7 +26,7 @@ constexpr char* CROSS_ROAD_TEXTURE_PATH = "../../ressources/gfx/cross_road.png";
 constexpr char* EMPTY_TERRAIN_TEXTURE_PATH = "../../ressources/gfx/empty.png";
 
 // Entities texture path
-constexpr char* TREE_TEXTURE_PATH = "../../ressources/gfx/tree.png";
+constexpr char* TREE_TEXTURE_PATH = "../../ressources/gfx/tree_animation.png";
 constexpr char* FIELD_TEXTURE_PATH = "../../ressources/gfx/field.png";
 constexpr char* MINE_TEXTURE_PATH = "../../ressources/gfx/mine.png";
 
@@ -53,6 +53,13 @@ constexpr SDL_Color TEXT_COLOR = { 255, 255, 255 };
 // Configuration of the platform sprite sheet
 constexpr int PLATFORM_SPRITE_SHEET_CONFIGURATION_X = 0;
 constexpr int PLATFORM_SPRITE_SHEET_CONFIGURATION_Y = 0;
+
+// Configuration of the zone sprite sheet
+constexpr int ZONE_SPRITE_SHEET_CONFIGURATION_X = 2;
+constexpr int ZONE_SPRITE_SHEET_CONFIGURATION_Y = 2;
+
+// Duration of the animation of the zones
+constexpr int ZONE_ANIMATION_FRAME_TIME = 60;
 
 // End Game Menu background
 constexpr char* END_GAME_MENU_BACKGROUND_TEXTURE_PATH = "../../ressources/gfx/end_game_menu.jpg";
