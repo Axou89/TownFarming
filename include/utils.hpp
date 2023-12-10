@@ -78,4 +78,14 @@ namespace utils
         SDL_FreeSurface(textSurface);
         SDL_DestroyTexture(textTexture);
     }
+
+    inline void RenderEndImage(SDL_Renderer *renderer, const char *filePath, int positionX, int positionY)
+    {
+        SDL_Rect rect = {positionX, positionY, 64, 64};
+        SDL_Texture *texture = IMG_LoadTexture(renderer, filePath);
+
+        SDL_RenderCopy(renderer, texture, NULL, &rect);
+
+        SDL_DestroyTexture(texture);
+    }
 }

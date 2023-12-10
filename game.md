@@ -39,8 +39,15 @@ The farming zones are animated.
 - Chill background music
 - Increase / decrease volume with the arrow keys
 
+## In game objectives
+There are 3 objectives to achieve depending on the score you get :
+- Honey lover : 500+ points
+- Iron lover : 1000+ points
+- Salad lover : 1500+ points
+
+Good luck reaching them !
+
 ## Additional features to be implemented
 - Change the window size as you want
 - Add new farming zones
 - Add new resources
-- Add objectives to reach
