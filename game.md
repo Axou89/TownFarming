@@ -36,11 +36,11 @@ It contains the following information :
 The farming zones are animated.
 
 ## Sound effects
-Chill background music.
+- Chill background music
+- Increase / decrease volume with the arrow keys
 
 ## Additional features to be implemented
 - Change the window size as you want
-- Change the volume of the music
 - Add new farming zones
 - Add new resources
 - Add objectives to reach
