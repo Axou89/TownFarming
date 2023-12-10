@@ -26,8 +26,6 @@ void Entity::updateAnimation()
         }
         currentFrame.x = currentFrameCoordinates.first * currentFrame.w;
         currentFrame.y = currentFrameCoordinates.second * currentFrame.h;
-
-        std::cout << "Current frame: " << currentFrameCoordinates.first << ", " << currentFrameCoordinates.second << std::endl;
     }
 
     logicUpdateCounter++;
