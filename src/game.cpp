@@ -89,7 +89,7 @@ void Game::run()
         SDL_RenderPresent(renderer);
 
         // End the game
-        if (timer >= 300) {
+        if (timer >= 180) {
             int score = player.getLog() + player.getHoney() * 5 + player.getCoal() + player.getIron() * 5 + player.getCarrot() + player.getSalad() * 5;
 
             while (eventManager.isGameFinished())

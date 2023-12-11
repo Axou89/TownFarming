@@ -4,7 +4,7 @@
 You are a farmer, and you have to collect resources to build and upgrade your farming zones.\
 The map is a 2D grid of 6x4 farming zones spots.\
 At the end of the game, you will be able to see your score calculated on the resources owned.\
-A game last 5 minutes.
+A game last 3 minutes.
 
 ## How to play
 Common resources are collected automatically.\
