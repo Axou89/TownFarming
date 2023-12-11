@@ -55,7 +55,7 @@ void EventManager::processEvents(Player &player, Level &level)
                         int randomZoneType = rand() % 3;
                         level.createZone(zones[randomZoneType].getTexture(),
                             SPRITE_WIDTH, SPRITE_HEIGHT,
-                            std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y),
+                            std::make_pair(ZONE_SPRITE_SHEET_CONFIGURATION_X, ZONE_SPRITE_SHEET_CONFIGURATION_Y),
                             zones[randomZoneType].getZoneType());
                     }
                 }
