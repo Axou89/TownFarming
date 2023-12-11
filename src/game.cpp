@@ -67,23 +67,23 @@ void Game::run()
         renderManager.render();
 
         // Display static text
-        utils::RenderText(font, renderer, "Timer", 32, 16);
+        utils::RenderText(font, renderer, "Timer", 16, 8);
 
         // Update timer text
-        utils::RenderText(font, renderer, std::to_string(timer).c_str(), 48, 48);
+        utils::RenderText(font, renderer, std::to_string(timer).c_str(), 32, 36);
 
         // Update log quantity text
-        utils::RenderText(font, renderer, std::to_string(player.getLog()).c_str(), 48, 144);
+        utils::RenderText(font, renderer, std::to_string(player.getLog()).c_str(), 32, 128);
         // Update honey quantity text
-        utils::RenderText(font, renderer, std::to_string(player.getHoney()).c_str(), 48, 240);
+        utils::RenderText(font, renderer, std::to_string(player.getHoney()).c_str(), 32, 240);
         // Update coal quantity text
-        utils::RenderText(font, renderer, std::to_string(player.getCoal()).c_str(), 48, 336);
+        utils::RenderText(font, renderer, std::to_string(player.getCoal()).c_str(), 32, 336);
         // Update iron quantity text
-        utils::RenderText(font, renderer, std::to_string(player.getIron()).c_str(), 48, 432);
+        utils::RenderText(font, renderer, std::to_string(player.getIron()).c_str(), 32, 432);
         // Update carrot quantity text
-        utils::RenderText(font, renderer, std::to_string(player.getCarrot()).c_str(), 48, 528);
+        utils::RenderText(font, renderer, std::to_string(player.getCarrot()).c_str(), 32, 528);
         // Update salad quantity text
-        utils::RenderText(font, renderer, std::to_string(player.getSalad()).c_str(), 48, 624);
+        utils::RenderText(font, renderer, std::to_string(player.getSalad()).c_str(), 32, 624);
 
         // Render the changing texts
         SDL_RenderPresent(renderer);
