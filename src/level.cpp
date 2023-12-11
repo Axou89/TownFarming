@@ -81,11 +81,11 @@ Level::Level(RenderWindow &window, Mix_Music* music) :
         window.loadTexture(SALAD_TEXTURE_PATH), 16, 16,
         std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
     // Add new farming zone button
-    platforms.push_back(Platform(Vector2f(8, 168),
+    platforms.push_back(Platform(Vector2f(8, 200),
         window.loadTexture(ADD_ZONE_TEXTURE_PATH), 16, 16,
         std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
     // Upgrade farming zone button
-    platforms.push_back(Platform(Vector2f(8, 192),
+    platforms.push_back(Platform(Vector2f(8, 220),
         window.loadTexture(UPGRADE_ZONE_TEXTURE_PATH), 16, 16,
         std::make_pair(PLATFORM_SPRITE_SHEET_CONFIGURATION_X, PLATFORM_SPRITE_SHEET_CONFIGURATION_Y)));
 
