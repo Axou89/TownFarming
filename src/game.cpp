@@ -32,6 +32,7 @@ void Game::run()
 
     int lastAction = 0;
     int timer = 0;
+    float pausedTimer = 0;
 
     // Game loop
     while (eventManager.isGameRunning())
@@ -41,7 +42,7 @@ void Game::run()
         if (!eventManager.isGamePaused())
         {
             // Calculate logic game frames beside the rendered frames
-            float newTime = utils::hireTimeInSeconds();
+            float newTime = utils::hireTimeInSeconds() - pausedTimer;
             float frameTime = newTime - currentTime;
             currentTime = newTime;
             accumulator += frameTime;
@@ -62,6 +63,9 @@ void Game::run()
                 player.addCarrot();
                 lastAction = timer;
             }
+        } else
+        {
+            pausedTimer = utils::hireTimeInSeconds() - currentTime;
         }
 
         renderManager.render();
