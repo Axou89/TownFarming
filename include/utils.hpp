@@ -58,13 +58,13 @@ namespace utils
     // Utility function to check if clicked on add zone button
     inline bool clickOnAddZoneButton(int x, int y)
     {
-        return x >= 8*4 && x <= 24*4 && y >= 164*4 && y <= 180*4;
+        return x >= 8*3 && x <= 24*3 && y >= 200*3 && y <= 216*3;
     }
 
     // Utility function to check if clicked on upgrade zone button
     inline bool clickOnUpgradeZoneButton(int x, int y)
     {
-        return x >= 8*4 && x <= 24*4 && y >= 188*4 && y <= 204*4;
+        return x >= 8*3 && x <= 24*3 && y >= 220*3 && y <= 236*3;
     }
 
     // Render the text and display it (used for the end game menu)
